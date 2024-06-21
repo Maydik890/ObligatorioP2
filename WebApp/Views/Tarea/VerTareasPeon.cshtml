@@ -1,0 +1,45 @@
+﻿@model Dominio.Peon 
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Fecha Pactada
+            </th>
+           
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.GetTareasPorFechaPactada())
+        {
+            if(item.Finalizada is not true){
+            <tr>
+
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Descripcion
+                </td>
+                <td>
+                    @item.FechaPactada
+                </td>
+                
+
+                <td>
+                    @Html.ActionLink("Completar", "CompletarTarea", "Tarea", new { item.Id })
+
+                </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

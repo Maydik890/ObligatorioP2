@@ -1,0 +1,29 @@
+﻿@using Dominio
+@model IEnumerable<Potrero>;
+
+<h1>Asignar Potrero</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input name="ganId" type="hidden" value="@ViewBag.Id">
+            <div class="form-group">
+                <label class="control-label">Asignar Potrero</label>
+                <select name="PotId" class="form-select">
+
+                    @foreach (var vac in Model)
+                    {
+                        <option value="@vac.Id">@vac.Descripcion</option>
+                    }
+                </select>
+
+            </div>
+            <div class="form-group form-check">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Asignar" class="btn btn-primary" id="btnAsignar" />
+            </div>
+        </form>
+    </div>
+</div>
+@ViewBag.msg

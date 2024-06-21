@@ -1,0 +1,52 @@
+﻿@using Dominio
+@model IEnumerable<Potrero>
+<h1>Potreros</h1>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Capacidad
+            </th>
+            <th>
+                Cantidad de animales
+            </th>
+            <th>
+                Potencial Precio de Venta
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Descripcion
+                </td>
+                <td>
+                    @item.CapacidadMax
+                </td>
+                <td>
+                    @item.Animales.Count()
+                </td>
+                <td>
+                    @item.PrecioEstimado
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,56 @@
+﻿@model Dominio.Bovino
+
+<h1>Registrar Animal</h1>
+<h2>Bovino</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label class="control-label">Id</label>
+                <input asp-for="Id" class="form-control" required/>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label">Sexo</label>
+                <input asp-for="Sexo" class="form-control" required />
+
+            </div><div class="form-group">
+                <label class="control-label">Raza</label>
+                <input asp-for="Raza" class="form-control" required />
+
+            </div><div class="form-group">
+                <label class="control-label">Fecha Nacimiento</label>
+                <input asp-for="FechaNac" class="form-control" type="date" required />
+
+            </div><div class="form-group">
+                <label class="control-label">Coste de adquisicion</label>
+                <input asp-for="CostaAdquisicion" class="form-control" type="number" required />
+
+            </div><div class="form-group">
+                <label class="control-label">Coste Alimentario</label>
+                <input asp-for="CosteAlimentario" class="form-control" type="number" required />
+
+            </div><div class="form-group">
+                <label class="control-label">Peso Actual</label>
+                <input asp-for="PesoActual" class="form-control" type="number" required />
+
+            </div><div class="form-group">
+                <label class="control-label">Hibrido</label>
+                <input asp-for="Hibrido" class="form-check" />
+
+            </div><div class="form-group">
+                <label class="control-label">Tipo de Alimentacion</label>
+                <input asp-for="TipoAlimentacion" class="form-control" required />
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@ViewBag.msg
+<div>
+    <a asp-action="ListaGanado">Volver a la lista</a>
+</div>

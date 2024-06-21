@@ -1,0 +1,66 @@
+﻿@model Dominio.Peon;
+
+<div class="border-1 rounded">
+
+    <h4>Título</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Id
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Id
+        </dd>
+        <dt class="col-sm-2">
+            Nombre
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nombre
+
+        </dd>
+
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Email
+        </dd>
+
+        <dt class="col-sm-2">
+            Estadia
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Residente)
+            {
+                <span>Reside</span>
+            }
+            else
+            {
+                <span>No reside</span>
+            }
+
+        </dd>
+        <dt class="col-sm-2">
+            Fecha de ingreso
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FechaIngreso
+
+        </dd>
+        <dt class="col-sm-2">
+            Tareas incompletas
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TareasIncompletas() 
+            @if (Model.TareasIncompletas()!=0){
+            <span class="badge">@Html.ActionLink("Ver tareas", "VerTareasPeon","Tarea", new { id = Model.Id })</span>
+            }
+        </dd>
+        
+
+
+    </dl>
+
+<div>
+    
+</div>

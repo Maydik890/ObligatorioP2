@@ -1,0 +1,181 @@
+﻿@model Dominio.Peon;
+@{
+    Layout = null;
+}
+<h1 class="card-title">Bienvenido</h1>
+<div class="login-page">
+    <div class="form">
+        <h3>Registro</h3>
+        <form method="post" id="formularioRegistro" class="register-form">
+            <input asp-for="Nombre" type="text" placeholder="Nombre" required />
+            <input asp-for="Email" type="text" placeholder="Email" required>
+            <input asp-for="Contra" type="password" placeholder="email address" required />
+            <div class="checkbox-container">
+                <label for="check">Residente?</label>
+                <input type="checkbox" id="check" name="check" asp-for="Residente" />
+            </div>
+            <button type="submit">Registrar</button>
+            <p class="message">Already registered? <a asp-action="Login" asp-controller="Home">Sign In</a></p>
+        </form>
+        @ViewBag.msg
+    </div>
+</div>
+
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    .login-page {
+        width: 360px;
+        padding: 8% 0 0;
+        margin: auto;
+        height: 500px;
+    }
+
+    h3 {
+        font-family: "Poppins",sans-serif;
+        font-weight: 500;
+        color: #ffff;
+        font-size: 32px;
+        line-height: 42px;
+        text-align: center;
+    }
+    .form {
+        position: relative;
+        z-index: 1;
+        background: rgba(255,255,255,0.13);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 40px rgba(6, 7, 16, 0.6);
+    }
+
+        .form input {
+            font-family: 'Poppins', Times, serif, sans-serif;
+            color: #ffff;
+            outline: 0;
+            background: rgb(255,255,255,0.07);
+            border-radius: 3px;
+            height: 50px;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 0, 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+    ::placeholder {
+        color: #e5e5e5;
+    }
+
+        .form button {
+        font-family: "Poppins", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #ffff;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #080710;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        -webkit-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+        cursor: pointer;
+        }
+
+  
+
+            .form button:hover, .form button:active, .form button:focus {
+            background: #5E5E5E;
+            color: #ffff;
+            }
+
+        .form .message {
+        font-family: "Poppins",sans-serif;
+        font-weight: 200;
+        margin: 15px 0 0;
+        color: #ffff;
+        font-size: 14px;
+        }
+
+            .form .message a {
+            font-family: "Poppins",sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #e5e5e5;
+            text-decoration: none;
+            -webkit-transition: all 0.1s ease-in;
+            transition: all 0.1s ease-in;
+            }
+
+            .form .message a:hover {
+                transform: scale(1.2);
+                color: 76FFC9;
+                cursor: pointer;
+            }
+
+    
+    body {
+        background: rgb(58,63,79);
+        background: radial-gradient(circle, rgba(58,63,79,1) 0%, rgba(47,49,64,1) 40%, rgba(4,5,9,1) 82%);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        margin-bottom: 15px;
+    }
+
+        .checkbox-container label {
+            font-family: "Poppins",sans-serif;
+            color: #fff;
+            font-size: 20px;
+            font-weight:300;
+            margin-right: 10px;
+        }
+
+
+        .checkbox-container input {
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .checkbox-container input:checked {
+                background-color: #5E5E5E;
+                border-color: #5E5E5E;
+            }
+
+                .checkbox-container input:checked::after {
+                    content: '\2713';
+                    color: #4CAF50; 
+                    font-size: 14px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform:translate(-50%, -50%);
+                }
+
+        
+    
+    
+</style>
+
+

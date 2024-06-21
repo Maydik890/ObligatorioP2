@@ -1,0 +1,105 @@
+﻿@model Dominio.Ganado
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Título</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Id
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Id
+        </dd>
+        <dt class="col-sm-2">
+            Sexo
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Sexo
+        </dd>
+        <dt class="col-sm-2">
+            Raza
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Raza
+        </dd>
+        <dt class="col-sm-2">
+            Fecha Nacimiento
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FechaNac
+        </dd>
+        <dt class="col-sm-2">
+            Coste de Adquisicion
+        </dt>
+        <dd class="col-sm-10">
+            @Model.CostaAdquisicion
+        </dd>
+        <dt class="col-sm-2">
+            Coste Alimentario
+        </dt>
+        <dd class="col-sm-10">
+            @Model.CosteAlimentario
+        </dd>
+        <dt class="col-sm-2">
+            Peso Actual
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PesoActual
+        </dd>
+        <dt class="col-sm-2">
+            Hibrido?
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Hibrido)
+            {
+                <span>Si</span>
+            }
+            else
+            {
+                <span>No</span>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Coste Crianza
+        </dt>
+        <dd class="col-sm-10">
+            @Model.CosteCrianza
+        </dd>
+        <dt class="col-sm-2">
+            Precio Estimado
+        </dt>
+        <dd class="col-sm-10">
+            @Model.PrecioEst
+        </dd>
+        
+    </dl>
+    <h4>Vacunas</h4>
+    <table class="table">
+     <thead>
+            <tr>
+                <th>Vacuna</th>
+                <th>Fecha administrada</th>
+                <th>Vencimiento</th>
+            </tr>
+     </thead>
+     <tbody>
+            @foreach(var item in Model.GetVacunacions())
+            {
+                <tr>
+                    <td>@item.Vacuna.Nombre</td>
+                    <td>@item.Fecha</td>
+                    <td>@item.Vencimiento</td>
+                </tr>
+            }
+
+     </tbody>
+    
+</table>
+
+</div>
+    
+<div>
+    <a asp-action="ListaGanado" asp-controller="Ganado">Volver a la lista</a>
+</div>

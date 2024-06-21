@@ -1,0 +1,33 @@
+﻿@using Dominio
+@model IEnumerable<Dominio.Vacuna>
+
+<h1>Agregar Vacuna</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input name="Id" type="hidden" value="@TempData["id"]">
+            <div class="form-group">
+                <label class="control-label">Asignar Vacuna</label>
+                <select name="slcVacuna" class="form-select">
+
+                    @foreach (var vac in Model)
+                    {
+                        <option value="@vac.Nombre">@vac.Nombre</option>
+                    }
+                </select>
+
+            </div>
+            <div class="form-group form-check">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@ViewBag.msg
+<div>
+    <a asp-action="ListaGanado">Volver a la lista</a>
+</div>

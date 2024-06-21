@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" >
+    <h1 class="display-4">Bienvenido</h1><hr />
+    <p>Usuario: @Context.Session.GetString("UsuarioNombre")<hr /> Rol: @Context.Session.GetString("UsuarioRol")</p>
+</div>
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Dominio.Ganado>
+<h1>Lista de Animales</h1>
+@if(Context.Session.GetString("UsuarioRol")=="Capataz"){
+<form method="post">
+    
+    <input type="number" name="peso" placeholder="Peso" class="form-control-sm"/>
+    <select name="tipo" class="form-select-sm">
+        <option value="TODOS" selected>Todos</option>
+        <option value="BOVINO">Bovino</option>
+        <option value="OVINO">Ovino</option>
+    </select>
+        <button type="submit" class="btn btn-info">Buscar<i class="fa-solid fa-magnifying-glass"></i></button>    
+</form>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Sexo
+            </th>
+            <th>
+                Raza
+            </th>
+            <th>
+                Fecha de Nacimiento
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Sexo
+                </td>
+                <td>
+                    @item.Raza
+                </td>
+                <td>
+                    @item.FechaNac
+                </td>
+
+                <td>
+                    @Html.ActionLink("Detalles", "Details", "Ganado", new { id = item.Id }) |
+                    @if (Context.Session.GetString("UsuarioRol") =="Peon")
+                    {
+                        @Html.ActionLink("Vacunar", "AsignarVacuna", new { id = item.Id })
+                        ;
+                    }
+                    else if (Context.Session.GetString("UsuarioRol") == "Capataz")
+                    {
+                        @Html.ActionLink("Asignar Potrero", "AsignarPotrero","Potrero", new { id = item.Id })
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+    

@@ -1,0 +1,30 @@
+﻿@model Dominio.Tarea
+<h1>Asignar Tarea</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" name="peonId" value="@ViewBag.Id" />
+            <div class="form-group">
+                <label class="control-label">Descripcion</label>
+                <input asp-for="Descripcion" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label class="control-label">Fecha Pactada</label>
+                <input asp-for="FechaPactada" class="form-control" type="date" />
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@ViewBag.msg
+<div>
+    <a asp-action="ListarPeones" asp-controller="Empleado">Volver a la lista</a>
+</div>
+
+
